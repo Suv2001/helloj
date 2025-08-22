@@ -13,7 +13,7 @@ pipeline {
         stage('Code') {
             steps {
                 clone('https://github.com/Suv2001/helloj.git', 'main')  // ✅ works
-                echo "Code Cloning Completed"
+                echo "Code Cloning Completed..."
             }
         }
 
