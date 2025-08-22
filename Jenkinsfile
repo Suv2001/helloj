@@ -20,11 +20,14 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-               buildImage('note-app', 'latest')
-            } 
+       stage('Build') {
+    steps {
+        dir('helloj') {
+            sh 'docker build -t note-app:latest .'
         }
+    }
+}
+
 
         stage('Test') {
             steps {
