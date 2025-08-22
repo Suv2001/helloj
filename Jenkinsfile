@@ -12,8 +12,11 @@ pipeline {
         
         stage('Code') {
             steps {
-                clone('https://github.com/Suv2001/helloj.git', 'main')  // ✅ works
-                echo "Code Cloning Completed..."
+                dir("${env.WORKSPACE}") {
+                    deleteDir()   // Clean workspace
+                }
+                clone('https://github.com/Suv2001/helloj.git', 'main')
+                echo "Code Cloning Completed"
             }
         }
 
