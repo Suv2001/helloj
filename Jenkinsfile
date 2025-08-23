@@ -16,7 +16,7 @@ pipeline {
                     deleteDir()   // Clean workspace
                 }
                 clone('https://github.com/Suv2001/helloj.git', 'main')
-                echo "Code Cloning Completed"
+                echo "Code Cloning Completed..."
             }
         }
 
