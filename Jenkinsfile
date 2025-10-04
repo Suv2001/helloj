@@ -37,18 +37,7 @@ pipeline {
 
         stage("Push To Docker Hub") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerHubCred', 
-                                                  usernameVariable: 'DOCKER_USER', 
-                                                  passwordVariable: 'DOCKER_PASS')]) {
-                    echo "Pushing to Docker Hub..."
-                    sh """
-                        echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
-                        echo "Login Successful"
-                        docker image tag flask-app:latest ${DOCKER_USER}/flask-app:latest
-                        docker push ${DOCKER_USER}/flask-app:latest
-                        echo "Image pushed to Docker Hub"
-                    """
-                }
+                echo "Pushing to Docker Hub"
             }
         }
 
